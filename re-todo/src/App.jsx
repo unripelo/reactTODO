@@ -1,34 +1,28 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const quotes = [
+    "Code is like humor. When you have to explain it, it’s bad.",
+    "Talk is cheap. Show me the code.",
+    "First, solve the problem. Then, write the code.",
+    "Experience is the name everyone gives to their mistakes.",
+    "Simplicity is the soul of efficiency.",
+  ];
+
+  const [quote, setQuote] = useState(quotes[0]);
+
+  const newQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setQuote(quotes[randomIndex]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>SO BUSY</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <h1>💡 Random Quote Generator</h1>
+      <p className="quote">"{quote}"</p>
+      <button onClick={newQuote}>Inspire Me ✨</button>
+    </div>
   );
 }
 
