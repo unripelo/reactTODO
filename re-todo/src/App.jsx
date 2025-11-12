@@ -2,26 +2,28 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const quotes = [
-    "Code is like humor. When you have to explain it, it’s bad.",
-    "Talk is cheap. Show me the code.",
-    "First, solve the problem. Then, write the code.",
-    "Experience is the name everyone gives to their mistakes.",
-    "Simplicity is the soul of efficiency.",
+  const facts = [
+    "Honey never spoils. Archaeologists have found edible honey in ancient Egyptian tombs!",
+    "Octopuses have three hearts and blue blood.",
+    "Bananas are berries, but strawberries aren’t.",
+    "A group of flamingos is called a ‘flamboyance’.",
+    "There are more stars in the universe than grains of sand on Earth.",
   ];
 
-  const [quote, setQuote] = useState(quotes[0]);
+  const [fact, setFact] = useState(facts[0]);
 
-  const newQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setQuote(quotes[randomIndex]);
+  const generateFact = () => {
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    setFact(facts[randomIndex]);
   };
 
   return (
     <div className="App">
-      <h1>💡 Random Quote Generator</h1>
-      <p className="quote">"{quote}"</p>
-      <button onClick={newQuote}>Inspire Me ✨</button>
+      <h1>🌍 Random Fun Fact Machine</h1>
+      <div className="fact-box">
+        <p className="fact">"{fact}"</p>
+      </div>
+      <button onClick={generateFact}>Show Me Another 🤯</button>
     </div>
   );
 }
