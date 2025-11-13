@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  // showWelcome controls whether the welcome page is visible.
+  const [showWelcome, setShowWelcome] = useState(true);
+
   const facts = [
     "Honey never spoils. Archaeologists have found edible honey in ancient Egyptian tombs!",
     "Octopuses have three hearts and blue blood.",
@@ -17,6 +20,18 @@ function App() {
     setFact(facts[randomIndex]);
   };
 
+  // Simple welcome page
+  if (showWelcome) {
+    return (
+      <div className="App welcome">
+        <h1>Welcome to React TODO</h1>
+        <p className="lead">A tiny demo app. Click below to enter.</p>
+        <button onClick={() => setShowWelcome(false)}>Enter App</button>
+      </div>
+    );
+  }
+
+  // Original app UI (shown after clicking Enter)
   return (
     <div className="App">
       <h1>🌍 Random Fun Fact Machine</h1>
